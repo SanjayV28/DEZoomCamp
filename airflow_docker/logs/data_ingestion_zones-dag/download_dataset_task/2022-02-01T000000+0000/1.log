@@ -1,0 +1,26 @@
+[2022-02-01 15:43:44,896] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_zones-dag.download_dataset_task scheduled__2022-02-01T00:00:00+00:00 [queued]>
+[2022-02-01 15:43:44,912] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_zones-dag.download_dataset_task scheduled__2022-02-01T00:00:00+00:00 [queued]>
+[2022-02-01 15:43:44,913] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-02-01 15:43:44,913] {taskinstance.py:1239} INFO - Starting attempt 1 of 2
+[2022-02-01 15:43:44,914] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-02-01 15:43:44,982] {taskinstance.py:1259} INFO - Executing <Task(BashOperator): download_dataset_task> on 2022-02-01 00:00:00+00:00
+[2022-02-01 15:43:44,986] {standard_task_runner.py:52} INFO - Started process 28996 to run task
+[2022-02-01 15:43:44,989] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_zones-dag', 'download_dataset_task', 'scheduled__2022-02-01T00:00:00+00:00', '--job-id', '136', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_zones_dag.py', '--cfg-path', '/tmp/tmphq8cv2xf', '--error-file', '/tmp/tmp0d8kva7j']
+[2022-02-01 15:43:44,990] {standard_task_runner.py:77} INFO - Job 136: Subtask download_dataset_task
+[2022-02-01 15:43:45,093] {logging_mixin.py:109} INFO - Running <TaskInstance: data_ingestion_zones-dag.download_dataset_task scheduled__2022-02-01T00:00:00+00:00 [running]> on host 153a4cabbd26
+[2022-02-01 15:43:45,200] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_zones-dag
+AIRFLOW_CTX_TASK_ID=download_dataset_task
+AIRFLOW_CTX_EXECUTION_DATE=2022-02-01T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-02-01T00:00:00+00:00
+[2022-02-01 15:43:45,202] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2022-02-01 15:43:45,203] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'curl -sS https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv > /opt/***/taxi_zone_lookup.csv']
+[2022-02-01 15:43:45,210] {subprocess.py:85} INFO - Output:
+[2022-02-01 15:43:47,237] {subprocess.py:93} INFO - Command exited with return code 0
+[2022-02-01 15:43:47,326] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=data_ingestion_zones-dag, task_id=download_dataset_task, execution_date=20220201T000000, start_date=20220201T154344, end_date=20220201T154347
+[2022-02-01 15:43:47,421] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-02-01 15:43:47,481] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check

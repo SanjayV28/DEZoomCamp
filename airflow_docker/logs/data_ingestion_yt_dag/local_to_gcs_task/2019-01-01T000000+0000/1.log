@@ -1,0 +1,97 @@
+[2022-01-30 22:35:40,666] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_yt_dag.local_to_gcs_task scheduled__2019-01-01T00:00:00+00:00 [queued]>
+[2022-01-30 22:35:40,677] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_yt_dag.local_to_gcs_task scheduled__2019-01-01T00:00:00+00:00 [queued]>
+[2022-01-30 22:35:40,677] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-30 22:35:40,678] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2022-01-30 22:35:40,678] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-30 22:35:40,863] {taskinstance.py:1259} INFO - Executing <Task(PythonOperator): local_to_gcs_task> on 2019-01-01 00:00:00+00:00
+[2022-01-30 22:35:40,871] {standard_task_runner.py:52} INFO - Started process 1383 to run task
+[2022-01-30 22:35:40,876] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_yt_dag', 'local_to_gcs_task', 'scheduled__2019-01-01T00:00:00+00:00', '--job-id', '28', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_yt_dag.py', '--cfg-path', '/tmp/tmpfnscx9j9', '--error-file', '/tmp/tmpy3p_gpse']
+[2022-01-30 22:35:40,877] {standard_task_runner.py:77} INFO - Job 28: Subtask local_to_gcs_task
+[2022-01-30 22:35:41,010] {logging_mixin.py:109} INFO - Running <TaskInstance: data_ingestion_yt_dag.local_to_gcs_task scheduled__2019-01-01T00:00:00+00:00 [running]> on host c1161da7400a
+[2022-01-30 22:35:41,104] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:152: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2022-01-30 22:35:41,193] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_yt_dag
+AIRFLOW_CTX_TASK_ID=local_to_gcs_task
+AIRFLOW_CTX_EXECUTION_DATE=2019-01-01T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2019-01-01T00:00:00+00:00
+[2022-01-30 22:35:41,272] {taskinstance.py:1700} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 174, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 185, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/data_ingestion_yt_dag.py", line 41, in upload_to_gcs
+    blob.upload_from_filename(local_file)
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/cloud/storage/blob.py", line 2720, in upload_from_filename
+    with open(filename, "rb") as file_obj:
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/airflow/yellow_tripdata_2019-01.parquet'
+[2022-01-30 22:35:41,291] {taskinstance.py:1277} INFO - Marking task as FAILED. dag_id=data_ingestion_yt_dag, task_id=local_to_gcs_task, execution_date=20190101T000000, start_date=20220130T223540, end_date=20220130T223541
+[2022-01-30 22:35:41,353] {standard_task_runner.py:92} ERROR - Failed to execute job 28 for task local_to_gcs_task
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/task/task_runner/standard_task_runner.py", line 85, in _start_by_fork
+    args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/cli.py", line 92, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 298, in task_run
+    _run_task_by_selected_method(args, dag, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 107, in _run_task_by_selected_method
+    _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 184, in _run_raw_task
+    error_file=args.error_file,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 70, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 174, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 185, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/data_ingestion_yt_dag.py", line 41, in upload_to_gcs
+    blob.upload_from_filename(local_file)
+  File "/home/airflow/.local/lib/python3.7/site-packages/google/cloud/storage/blob.py", line 2720, in upload_from_filename
+    with open(filename, "rb") as file_obj:
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/airflow/yellow_tripdata_2019-01.parquet'
+[2022-01-30 22:35:41,372] {local_task_job.py:154} INFO - Task exited with return code 1
+[2022-01-30 22:35:41,437] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2022-01-31 02:13:13,660] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_yt_dag.local_to_gcs_task scheduled__2019-01-01T00:00:00+00:00 [queued]>
+[2022-01-31 02:13:13,895] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_yt_dag.local_to_gcs_task scheduled__2019-01-01T00:00:00+00:00 [queued]>
+[2022-01-31 02:13:13,896] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-31 02:13:13,896] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2022-01-31 02:13:13,897] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-31 02:13:14,149] {taskinstance.py:1259} INFO - Executing <Task(PythonOperator): local_to_gcs_task> on 2019-01-01 00:00:00+00:00
+[2022-01-31 02:13:14,154] {standard_task_runner.py:52} INFO - Started process 1511 to run task
+[2022-01-31 02:13:14,157] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_yt_dag', 'local_to_gcs_task', 'scheduled__2019-01-01T00:00:00+00:00', '--job-id', '34', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_yt_dag.py', '--cfg-path', '/tmp/tmpwp4a21ou', '--error-file', '/tmp/tmp6hgn1u6c']
+[2022-01-31 02:13:14,159] {standard_task_runner.py:77} INFO - Job 34: Subtask local_to_gcs_task
+[2022-01-31 02:13:14,311] {logging_mixin.py:109} INFO - Running <TaskInstance: data_ingestion_yt_dag.local_to_gcs_task scheduled__2019-01-01T00:00:00+00:00 [running]> on host ba9b87dbe2ba
+[2022-01-31 02:13:15,286] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:152: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2022-01-31 02:13:15,666] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_yt_dag
+AIRFLOW_CTX_TASK_ID=local_to_gcs_task
+AIRFLOW_CTX_EXECUTION_DATE=2019-01-01T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2019-01-01T00:00:00+00:00
+[2022-01-31 02:13:50,450] {python.py:175} INFO - Done. Returned value was: None
+[2022-01-31 02:13:50,515] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=data_ingestion_yt_dag, task_id=local_to_gcs_task, execution_date=20190101T000000, start_date=20220131T021313, end_date=20220131T021350
+[2022-01-31 02:13:50,881] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-01-31 02:13:51,173] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check

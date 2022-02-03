@@ -1,0 +1,27 @@
+[2022-02-01 13:13:20,179] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_fhv_dag.download_data_task scheduled__2019-06-01T00:00:00+00:00 [queued]>
+[2022-02-01 13:13:20,191] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_fhv_dag.download_data_task scheduled__2019-06-01T00:00:00+00:00 [queued]>
+[2022-02-01 13:13:20,191] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-02-01 13:13:20,192] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2022-02-01 13:13:20,192] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-02-01 13:13:20,237] {taskinstance.py:1259} INFO - Executing <Task(BashOperator): download_data_task> on 2019-06-01 00:00:00+00:00
+[2022-02-01 13:13:20,240] {standard_task_runner.py:52} INFO - Started process 9614 to run task
+[2022-02-01 13:13:20,243] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_fhv_dag', 'download_data_task', 'scheduled__2019-06-01T00:00:00+00:00', '--job-id', '28', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_fhv_dag.py', '--cfg-path', '/tmp/tmpjyavpx1q', '--error-file', '/tmp/tmpjv_f2a4q']
+[2022-02-01 13:13:20,244] {standard_task_runner.py:77} INFO - Job 28: Subtask download_data_task
+[2022-02-01 13:13:20,334] {logging_mixin.py:109} INFO - Running <TaskInstance: data_ingestion_fhv_dag.download_data_task scheduled__2019-06-01T00:00:00+00:00 [running]> on host 153a4cabbd26
+[2022-02-01 13:13:20,423] {logging_mixin.py:109} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:152 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2022-02-01 13:13:20,478] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_fhv_dag
+AIRFLOW_CTX_TASK_ID=download_data_task
+AIRFLOW_CTX_EXECUTION_DATE=2019-06-01T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2019-06-01T00:00:00+00:00
+[2022-02-01 13:13:20,479] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2022-02-01 13:13:20,480] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'curl -sSL https://nyc-tlc.s3.amazonaws.com/trip+data/fhv_tripdata_2019-06.csv > /opt/***/fhv_tripdata_2019-06.csv']
+[2022-02-01 13:13:20,488] {subprocess.py:85} INFO - Output:
+[2022-02-01 13:17:31,697] {subprocess.py:93} INFO - Command exited with return code 0
+[2022-02-01 13:17:31,764] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=data_ingestion_fhv_dag, task_id=download_data_task, execution_date=20190601T000000, start_date=20220201T131320, end_date=20220201T131731
+[2022-02-01 13:17:31,941] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-02-01 13:17:32,009] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check

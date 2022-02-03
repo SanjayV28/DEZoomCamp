@@ -1,0 +1,231 @@
+[2022-02-01 04:10:37,546] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_fhv_dag.download_data_task scheduled__2019-01-01T00:00:00+00:00 [queued]>
+[2022-02-01 04:10:37,560] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_fhv_dag.download_data_task scheduled__2019-01-01T00:00:00+00:00 [queued]>
+[2022-02-01 04:10:37,586] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-02-01 04:10:37,586] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2022-02-01 04:10:37,587] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-02-01 04:10:37,655] {taskinstance.py:1259} INFO - Executing <Task(BashOperator): download_data_task> on 2019-01-01 00:00:00+00:00
+[2022-02-01 04:10:37,660] {standard_task_runner.py:52} INFO - Started process 461 to run task
+[2022-02-01 04:10:37,663] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_fhv_dag', 'download_data_task', 'scheduled__2019-01-01T00:00:00+00:00', '--job-id', '73', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_fhv_dag.py', '--cfg-path', '/tmp/tmpzqv3op29', '--error-file', '/tmp/tmp3v99p_fc']
+[2022-02-01 04:10:37,664] {standard_task_runner.py:77} INFO - Job 73: Subtask download_data_task
+[2022-02-01 04:10:37,774] {logging_mixin.py:109} INFO - Running <TaskInstance: data_ingestion_fhv_dag.download_data_task scheduled__2019-01-01T00:00:00+00:00 [running]> on host 9cbae3dd5aa6
+[2022-02-01 04:10:37,879] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:152: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2022-02-01 04:10:37,964] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_fhv_dag
+AIRFLOW_CTX_TASK_ID=download_data_task
+AIRFLOW_CTX_EXECUTION_DATE=2019-01-01T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2019-01-01T00:00:00+00:00
+[2022-02-01 04:10:37,966] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2022-02-01 04:10:37,967] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'curl -sSL https://nyc-tlc.s3.amazonaws.com/trip+data/fhv_tripdata_2019-01.csv > /opt/***/fhv_tripdata_2019-01.csv']
+[2022-02-01 04:10:37,978] {subprocess.py:85} INFO - Output:
+[2022-02-01 04:53:48,792] {local_task_job.py:212} WARNING - State of this instance has been externally set to restarting. Terminating instance.
+[2022-02-01 04:53:48,830] {process_utils.py:124} INFO - Sending Signals.SIGTERM to group 461. PIDs of all processes in the group: [462, 463, 461]
+[2022-02-01 04:53:48,832] {process_utils.py:75} INFO - Sending the signal Signals.SIGTERM to group 461
+[2022-02-01 04:53:48,837] {taskinstance.py:1408} ERROR - Received SIGTERM. Terminating subprocesses.
+[2022-02-01 04:53:48,846] {subprocess.py:99} INFO - Sending SIGTERM signal to process group
+[2022-02-01 04:53:48,861] {process_utils.py:70} INFO - Process psutil.Process(pid=463, status='terminated', started='04:10:37') (463) terminated with exit code None
+[2022-02-01 04:53:48,965] {taskinstance.py:1700} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 182, in execute
+    cwd=self.cwd,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/subprocess.py", line 87, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b''):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1410, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2022-02-01 04:53:48,995] {taskinstance.py:1277} INFO - Marking task as UP_FOR_RETRY. dag_id=data_ingestion_fhv_dag, task_id=download_data_task, execution_date=20190101T000000, start_date=20220201T041037, end_date=20220201T045348
+[2022-02-01 04:53:49,625] {standard_task_runner.py:92} ERROR - Failed to execute job 73 for task download_data_task
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/task/task_runner/standard_task_runner.py", line 85, in _start_by_fork
+    args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/cli.py", line 92, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 298, in task_run
+    _run_task_by_selected_method(args, dag, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 107, in _run_task_by_selected_method
+    _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 184, in _run_raw_task
+    error_file=args.error_file,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 70, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 182, in execute
+    cwd=self.cwd,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/subprocess.py", line 87, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b''):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1410, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2022-02-01 04:53:49,711] {process_utils.py:70} INFO - Process psutil.Process(pid=461, status='terminated', exitcode=1, started='04:10:37') (461) terminated with exit code 1
+[2022-02-01 04:53:49,712] {process_utils.py:70} INFO - Process psutil.Process(pid=462, status='terminated', started='04:10:37') (462) terminated with exit code None
+[2022-02-01 11:58:02,260] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_fhv_dag.download_data_task scheduled__2019-01-01T00:00:00+00:00 [queued]>
+[2022-02-01 11:58:02,276] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_fhv_dag.download_data_task scheduled__2019-01-01T00:00:00+00:00 [queued]>
+[2022-02-01 11:58:02,276] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-02-01 11:58:02,277] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2022-02-01 11:58:02,278] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-02-01 11:58:02,345] {taskinstance.py:1259} INFO - Executing <Task(BashOperator): download_data_task> on 2019-01-01 00:00:00+00:00
+[2022-02-01 11:58:02,349] {standard_task_runner.py:52} INFO - Started process 472 to run task
+[2022-02-01 11:58:02,353] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_fhv_dag', 'download_data_task', 'scheduled__2019-01-01T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_fhv_dag.py', '--cfg-path', '/tmp/tmp0e5pj67_', '--error-file', '/tmp/tmpmk42vqn8']
+[2022-02-01 11:58:02,354] {standard_task_runner.py:77} INFO - Job 2: Subtask download_data_task
+[2022-02-01 11:58:02,563] {logging_mixin.py:109} INFO - Running <TaskInstance: data_ingestion_fhv_dag.download_data_task scheduled__2019-01-01T00:00:00+00:00 [running]> on host 153a4cabbd26
+[2022-02-01 11:58:02,790] {logging_mixin.py:109} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:152 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2022-02-01 11:58:02,868] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_fhv_dag
+AIRFLOW_CTX_TASK_ID=download_data_task
+AIRFLOW_CTX_EXECUTION_DATE=2019-01-01T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2019-01-01T00:00:00+00:00
+[2022-02-01 11:58:02,872] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2022-02-01 11:58:02,875] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'curl -sSL https://nyc-tlc.s3.amazonaws.com/trip+data/fhv_tripdata_2019-01.csv > /opt/***/fhv_tripdata_2019-01.csv']
+[2022-02-01 11:58:02,901] {subprocess.py:85} INFO - Output:
+[2022-02-01 12:14:44,650] {local_task_job.py:212} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2022-02-01 12:14:44,662] {process_utils.py:124} INFO - Sending Signals.SIGTERM to group 472. PIDs of all processes in the group: [473, 474, 472]
+[2022-02-01 12:14:44,663] {process_utils.py:75} INFO - Sending the signal Signals.SIGTERM to group 472
+[2022-02-01 12:14:44,665] {taskinstance.py:1408} ERROR - Received SIGTERM. Terminating subprocesses.
+[2022-02-01 12:14:44,668] {subprocess.py:99} INFO - Sending SIGTERM signal to process group
+[2022-02-01 12:14:44,862] {process_utils.py:70} INFO - Process psutil.Process(pid=473, status='terminated', started='11:58:02') (473) terminated with exit code None
+[2022-02-01 12:14:44,864] {process_utils.py:70} INFO - Process psutil.Process(pid=472, status='terminated', exitcode=0, started='11:58:01') (472) terminated with exit code 0
+[2022-02-01 12:14:44,865] {process_utils.py:70} INFO - Process psutil.Process(pid=474, status='terminated', started='11:58:02') (474) terminated with exit code None
+[2022-02-01 12:16:13,070] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_fhv_dag.download_data_task scheduled__2019-01-01T00:00:00+00:00 [queued]>
+[2022-02-01 12:16:13,087] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_fhv_dag.download_data_task scheduled__2019-01-01T00:00:00+00:00 [queued]>
+[2022-02-01 12:16:13,088] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-02-01 12:16:13,088] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2022-02-01 12:16:13,089] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-02-01 12:16:13,179] {taskinstance.py:1259} INFO - Executing <Task(BashOperator): download_data_task> on 2019-01-01 00:00:00+00:00
+[2022-02-01 12:16:13,185] {standard_task_runner.py:52} INFO - Started process 2671 to run task
+[2022-02-01 12:16:13,191] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_fhv_dag', 'download_data_task', 'scheduled__2019-01-01T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_fhv_dag.py', '--cfg-path', '/tmp/tmpicd6kk6a', '--error-file', '/tmp/tmphrmr2f6l']
+[2022-02-01 12:16:13,192] {standard_task_runner.py:77} INFO - Job 4: Subtask download_data_task
+[2022-02-01 12:16:13,353] {logging_mixin.py:109} INFO - Running <TaskInstance: data_ingestion_fhv_dag.download_data_task scheduled__2019-01-01T00:00:00+00:00 [running]> on host 153a4cabbd26
+[2022-02-01 12:16:13,455] {logging_mixin.py:109} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:152 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2022-02-01 12:16:13,530] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_fhv_dag
+AIRFLOW_CTX_TASK_ID=download_data_task
+AIRFLOW_CTX_EXECUTION_DATE=2019-01-01T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2019-01-01T00:00:00+00:00
+[2022-02-01 12:16:13,531] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2022-02-01 12:16:13,533] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'curl -sSL https://nyc-tlc.s3.amazonaws.com/trip+data/fhv_tripdata_2019-01.csv > /opt/***/fhv_tripdata_2019-01.csv']
+[2022-02-01 12:16:13,543] {subprocess.py:85} INFO - Output:
+[2022-02-01 12:51:27,599] {local_task_job.py:212} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2022-02-01 12:51:27,614] {process_utils.py:124} INFO - Sending Signals.SIGTERM to group 2671. PIDs of all processes in the group: [2672, 2673, 2671]
+[2022-02-01 12:51:27,615] {process_utils.py:75} INFO - Sending the signal Signals.SIGTERM to group 2671
+[2022-02-01 12:51:27,624] {taskinstance.py:1408} ERROR - Received SIGTERM. Terminating subprocesses.
+[2022-02-01 12:51:27,660] {subprocess.py:99} INFO - Sending SIGTERM signal to process group
+[2022-02-01 12:51:27,954] {process_utils.py:70} INFO - Process psutil.Process(pid=2673, status='terminated', started='12:16:13') (2673) terminated with exit code None
+[2022-02-01 12:51:28,386] {process_utils.py:70} INFO - Process psutil.Process(pid=2671, status='terminated', exitcode=0, started='12:16:12') (2671) terminated with exit code 0
+[2022-02-01 12:51:28,388] {process_utils.py:70} INFO - Process psutil.Process(pid=2672, status='terminated', started='12:16:13') (2672) terminated with exit code None
+[2022-02-01 12:52:25,758] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_fhv_dag.download_data_task scheduled__2019-01-01T00:00:00+00:00 [queued]>
+[2022-02-01 12:52:25,772] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_fhv_dag.download_data_task scheduled__2019-01-01T00:00:00+00:00 [queued]>
+[2022-02-01 12:52:25,772] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-02-01 12:52:25,773] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2022-02-01 12:52:25,774] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-02-01 12:52:25,822] {taskinstance.py:1259} INFO - Executing <Task(BashOperator): download_data_task> on 2019-01-01 00:00:00+00:00
+[2022-02-01 12:52:25,827] {standard_task_runner.py:52} INFO - Started process 6968 to run task
+[2022-02-01 12:52:25,832] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_fhv_dag', 'download_data_task', 'scheduled__2019-01-01T00:00:00+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_fhv_dag.py', '--cfg-path', '/tmp/tmpr7dg33k9', '--error-file', '/tmp/tmppjqsrq6d']
+[2022-02-01 12:52:25,833] {standard_task_runner.py:77} INFO - Job 7: Subtask download_data_task
+[2022-02-01 12:52:25,952] {logging_mixin.py:109} INFO - Running <TaskInstance: data_ingestion_fhv_dag.download_data_task scheduled__2019-01-01T00:00:00+00:00 [running]> on host 153a4cabbd26
+[2022-02-01 12:52:26,056] {logging_mixin.py:109} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:152 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2022-02-01 12:52:26,110] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_fhv_dag
+AIRFLOW_CTX_TASK_ID=download_data_task
+AIRFLOW_CTX_EXECUTION_DATE=2019-01-01T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2019-01-01T00:00:00+00:00
+[2022-02-01 12:52:26,112] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2022-02-01 12:52:26,113] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'curl -sSL https://nyc-tlc.s3.amazonaws.com/trip+data/fhv_tripdata_2019-01.csv > /opt/***/fhv_tripdata_2019-01.csv']
+[2022-02-01 12:52:26,123] {subprocess.py:85} INFO - Output:
+[2022-02-01 12:57:39,104] {subprocess.py:89} INFO - curl: (18) transfer closed with 1259827109 bytes remaining to read
+[2022-02-01 12:57:39,841] {subprocess.py:93} INFO - Command exited with return code 18
+[2022-02-01 12:57:39,865] {taskinstance.py:1700} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 188, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 18.
+[2022-02-01 12:57:39,876] {taskinstance.py:1277} INFO - Marking task as FAILED. dag_id=data_ingestion_fhv_dag, task_id=download_data_task, execution_date=20190101T000000, start_date=20220201T125225, end_date=20220201T125739
+[2022-02-01 12:58:22,034] {standard_task_runner.py:92} ERROR - Failed to execute job 7 for task download_data_task
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/task/task_runner/standard_task_runner.py", line 85, in _start_by_fork
+    args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/cli.py", line 92, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 298, in task_run
+    _run_task_by_selected_method(args, dag, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 107, in _run_task_by_selected_method
+    _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 184, in _run_raw_task
+    error_file=args.error_file,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 70, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 188, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 18.
+[2022-02-01 12:58:22,073] {local_task_job.py:154} INFO - Task exited with return code 1
+[2022-02-01 12:58:24,557] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2022-02-01 13:01:01,914] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_fhv_dag.download_data_task scheduled__2019-01-01T00:00:00+00:00 [queued]>
+[2022-02-01 13:01:01,926] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_fhv_dag.download_data_task scheduled__2019-01-01T00:00:00+00:00 [queued]>
+[2022-02-01 13:01:01,927] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-02-01 13:01:01,927] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2022-02-01 13:01:01,927] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-02-01 13:01:01,986] {taskinstance.py:1259} INFO - Executing <Task(BashOperator): download_data_task> on 2019-01-01 00:00:00+00:00
+[2022-02-01 13:01:01,995] {standard_task_runner.py:52} INFO - Started process 7928 to run task
+[2022-02-01 13:01:02,003] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_fhv_dag', 'download_data_task', 'scheduled__2019-01-01T00:00:00+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_fhv_dag.py', '--cfg-path', '/tmp/tmphvl57ffn', '--error-file', '/tmp/tmp4nu5ntxo']
+[2022-02-01 13:01:02,005] {standard_task_runner.py:77} INFO - Job 11: Subtask download_data_task
+[2022-02-01 13:01:02,154] {logging_mixin.py:109} INFO - Running <TaskInstance: data_ingestion_fhv_dag.download_data_task scheduled__2019-01-01T00:00:00+00:00 [running]> on host 153a4cabbd26
+[2022-02-01 13:01:02,260] {logging_mixin.py:109} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:152 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2022-02-01 13:01:02,487] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_fhv_dag
+AIRFLOW_CTX_TASK_ID=download_data_task
+AIRFLOW_CTX_EXECUTION_DATE=2019-01-01T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2019-01-01T00:00:00+00:00
+[2022-02-01 13:01:02,491] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2022-02-01 13:01:02,493] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'curl -sSL https://nyc-tlc.s3.amazonaws.com/trip+data/fhv_tripdata_2019-01.csv > /opt/***/fhv_tripdata_2019-01.csv']
+[2022-02-01 13:01:02,508] {subprocess.py:85} INFO - Output:
+[2022-02-01 13:33:31,272] {subprocess.py:93} INFO - Command exited with return code 0
+[2022-02-01 13:33:31,607] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=data_ingestion_fhv_dag, task_id=download_data_task, execution_date=20190101T000000, start_date=20220201T130101, end_date=20220201T133331
+[2022-02-01 13:33:31,702] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-02-01 13:33:31,778] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check

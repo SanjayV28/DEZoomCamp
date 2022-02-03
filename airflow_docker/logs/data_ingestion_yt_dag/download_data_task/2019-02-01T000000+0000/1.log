@@ -1,0 +1,127 @@
+[2022-01-30 22:36:16,866] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_yt_dag.download_data_task scheduled__2019-02-01T00:00:00+00:00 [queued]>
+[2022-01-30 22:36:16,878] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_yt_dag.download_data_task scheduled__2019-02-01T00:00:00+00:00 [queued]>
+[2022-01-30 22:36:16,879] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-30 22:36:16,879] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2022-01-30 22:36:16,880] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-30 22:36:17,197] {taskinstance.py:1259} INFO - Executing <Task(BashOperator): download_data_task> on 2019-02-01 00:00:00+00:00
+[2022-01-30 22:36:17,202] {standard_task_runner.py:52} INFO - Started process 1415 to run task
+[2022-01-30 22:36:17,205] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_yt_dag', 'download_data_task', 'scheduled__2019-02-01T00:00:00+00:00', '--job-id', '29', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_yt_dag.py', '--cfg-path', '/tmp/tmp998gj1rt', '--error-file', '/tmp/tmpgarc9rxr']
+[2022-01-30 22:36:17,206] {standard_task_runner.py:77} INFO - Job 29: Subtask download_data_task
+[2022-01-30 22:36:17,418] {logging_mixin.py:109} INFO - Running <TaskInstance: data_ingestion_yt_dag.download_data_task scheduled__2019-02-01T00:00:00+00:00 [running]> on host c1161da7400a
+[2022-01-30 22:36:17,657] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:152: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2022-01-30 22:36:17,863] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_yt_dag
+AIRFLOW_CTX_TASK_ID=download_data_task
+AIRFLOW_CTX_EXECUTION_DATE=2019-02-01T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2019-02-01T00:00:00+00:00
+[2022-01-30 22:36:17,865] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2022-01-30 22:36:17,866] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'curl -sSL https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2019-02.csv > /opt/***/yellow_tripdata_2019-02.csv']
+[2022-01-30 22:36:17,964] {subprocess.py:85} INFO - Output:
+[2022-01-30 22:48:04,762] {subprocess.py:93} INFO - Command exited with return code 0
+[2022-01-30 22:48:04,920] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=data_ingestion_yt_dag, task_id=download_data_task, execution_date=20190201T000000, start_date=20220130T223616, end_date=20220130T224804
+[2022-01-30 22:48:05,003] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-01-30 22:48:05,100] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2022-01-31 02:14:20,903] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_yt_dag.download_data_task scheduled__2019-02-01T00:00:00+00:00 [queued]>
+[2022-01-31 02:14:20,915] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_yt_dag.download_data_task scheduled__2019-02-01T00:00:00+00:00 [queued]>
+[2022-01-31 02:14:20,916] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-31 02:14:20,917] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2022-01-31 02:14:20,917] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-31 02:14:20,983] {taskinstance.py:1259} INFO - Executing <Task(BashOperator): download_data_task> on 2019-02-01 00:00:00+00:00
+[2022-01-31 02:14:20,988] {standard_task_runner.py:52} INFO - Started process 1563 to run task
+[2022-01-31 02:14:20,991] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_yt_dag', 'download_data_task', 'scheduled__2019-02-01T00:00:00+00:00', '--job-id', '36', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_yt_dag.py', '--cfg-path', '/tmp/tmpq75s923h', '--error-file', '/tmp/tmpvyx07p5k']
+[2022-01-31 02:14:20,993] {standard_task_runner.py:77} INFO - Job 36: Subtask download_data_task
+[2022-01-31 02:14:21,134] {logging_mixin.py:109} INFO - Running <TaskInstance: data_ingestion_yt_dag.download_data_task scheduled__2019-02-01T00:00:00+00:00 [running]> on host ba9b87dbe2ba
+[2022-01-31 02:14:21,216] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:152: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2022-01-31 02:14:21,287] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_yt_dag
+AIRFLOW_CTX_TASK_ID=download_data_task
+AIRFLOW_CTX_EXECUTION_DATE=2019-02-01T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2019-02-01T00:00:00+00:00
+[2022-01-31 02:14:21,315] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2022-01-31 02:14:21,332] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'curl -sSL https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2019-02.csv > /opt/***/yellow_tripdata_2019-02.csv']
+[2022-01-31 02:14:21,421] {subprocess.py:85} INFO - Output:
+[2022-01-31 02:26:33,401] {subprocess.py:89} INFO - curl: (56) OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 104
+[2022-01-31 02:51:19,197] {subprocess.py:93} INFO - Command exited with return code 56
+[2022-01-31 02:51:20,000] {taskinstance.py:1700} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 188, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 56.
+[2022-01-31 02:51:20,233] {taskinstance.py:1277} INFO - Marking task as FAILED. dag_id=data_ingestion_yt_dag, task_id=download_data_task, execution_date=20190201T000000, start_date=20220131T021420, end_date=20220131T025120
+[2022-01-31 02:51:20,879] {local_task_job.py:212} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2022-01-31 02:51:21,081] {process_utils.py:124} INFO - Sending Signals.SIGTERM to group 1563. PIDs of all processes in the group: [1563]
+[2022-01-31 02:51:21,082] {process_utils.py:75} INFO - Sending the signal Signals.SIGTERM to group 1563
+[2022-01-31 02:51:21,141] {taskinstance.py:1408} ERROR - Received SIGTERM. Terminating subprocesses.
+[2022-01-31 02:51:21,148] {subprocess.py:99} INFO - Sending SIGTERM signal to process group
+[2022-01-31 02:51:20,778] {standard_task_runner.py:92} ERROR - Failed to execute job 36 for task download_data_task
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/task/task_runner/standard_task_runner.py", line 85, in _start_by_fork
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/cli.py", line 92, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 298, in task_run
+    _run_task_by_selected_method(args, dag, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 107, in _run_task_by_selected_method
+    _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 184, in _run_raw_task
+    error_file=args.error_file,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 70, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 188, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 56.
+[2022-01-31 02:51:22,021] {process_utils.py:70} INFO - Process psutil.Process(pid=1563, status='terminated', exitcode=1, started='02:14:20') (1563) terminated with exit code 1
+[2022-01-31 15:42:01,693] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_yt_dag.download_data_task scheduled__2019-02-01T00:00:00+00:00 [queued]>
+[2022-01-31 15:42:01,743] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_yt_dag.download_data_task scheduled__2019-02-01T00:00:00+00:00 [queued]>
+[2022-01-31 15:42:01,743] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-31 15:42:01,744] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2022-01-31 15:42:01,744] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-31 15:42:01,979] {taskinstance.py:1259} INFO - Executing <Task(BashOperator): download_data_task> on 2019-02-01 00:00:00+00:00
+[2022-01-31 15:42:01,988] {standard_task_runner.py:52} INFO - Started process 132 to run task
+[2022-01-31 15:42:01,994] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_yt_dag', 'download_data_task', 'scheduled__2019-02-01T00:00:00+00:00', '--job-id', '40', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_yt_dag.py', '--cfg-path', '/tmp/tmpypzaov48', '--error-file', '/tmp/tmpion4hbqe']
+[2022-01-31 15:42:01,996] {standard_task_runner.py:77} INFO - Job 40: Subtask download_data_task
+[2022-01-31 15:42:02,222] {logging_mixin.py:109} INFO - Running <TaskInstance: data_ingestion_yt_dag.download_data_task scheduled__2019-02-01T00:00:00+00:00 [running]> on host b65009af93ab
+[2022-01-31 15:42:02,377] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:152: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2022-01-31 15:42:02,465] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_yt_dag
+AIRFLOW_CTX_TASK_ID=download_data_task
+AIRFLOW_CTX_EXECUTION_DATE=2019-02-01T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2019-02-01T00:00:00+00:00
+[2022-01-31 15:42:02,466] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2022-01-31 15:42:02,468] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'curl -sSL https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2019-02.csv > /opt/***/yellow_tripdata_2019-02.csv']
+[2022-01-31 15:42:02,490] {subprocess.py:85} INFO - Output:
+[2022-01-31 15:44:54,491] {subprocess.py:93} INFO - Command exited with return code 0
+[2022-01-31 15:44:54,585] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=data_ingestion_yt_dag, task_id=download_data_task, execution_date=20190201T000000, start_date=20220131T154201, end_date=20220131T154454
+[2022-01-31 15:44:54,668] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-01-31 15:44:54,888] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check
